@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Interactive, XR, Controllers, VRButton } from '@react-three/xr'
+import { Interactive, XR, Controllers, VRButton, Hands } from '@react-three/xr'
 import { Sky, Text } from '@react-three/drei'
 import '@react-three/fiber'
 import { Canvas } from '@react-three/fiber'
@@ -36,9 +36,9 @@ function Button(props: any) {
 
   return (
     <Interactive onSelect={onSelect} onHover={() => setHover(true)} onBlur={() => setHover(false)}>
-      <Box color={color} scale={hover ? [1.5, 1.5, 1.5] : [1, 1, 1]} size={[0.4, 0.1, 0.1]} {...props}>
-        <Text position={[0, 0, 0.06]} fontSize={0.05} color="#000" anchorX="center" anchorY="middle">
-          Hello react-xr from MTL!
+      <Box color={color} scale={hover ? [1.5, 1.5, 1.5] : [1, 1, 1]} size={[0.9, 0.1, 0.1]} {...props}>
+        <Text position={[0, 0, 0.06]} fontSize={0.05} color="#fff" anchorX="center" anchorY="middle">
+          We love React Meetup Montreal!
         </Text>
       </Box>
     </Interactive>
@@ -56,6 +56,7 @@ function App() {
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
           <Controllers />
+          <Hands />
           <Button position={[0, 0.8, -1]} />
         </XR>
       </Canvas>
